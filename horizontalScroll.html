@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+
+
+<html>
+
+<head>
+
+<style type="text/css">
+    
+    /* ==================== */
+    /*   Set up styles      */
+    /* ==================== */
+    html	{
+			background-color: black;
+		}
+    
+    .layermotion {
+      position: absolute;
+      white-space: nowrap;
+      font-size: 0;
+    }
+    
+    .layer {
+      display: inline-block;
+    }
+    
+    #layers {
+      position: relative;
+      overflow: hidden;
+      
+      /* Viewport Width and Height */
+      width: 500px;
+      height: 500px;
+    }
+
+    /* =========================================== */
+    /* Define the animation for change in position */
+    /* =========================================== */
+    
+    /* Left To Right: -50%, 0 then 0, 0 */
+    /* Right To Left: 0, 0 then -50%, 0 */
+    
+    @keyframes scrollHoriz {
+			from { transform: translate( 0, 0 ); }
+			to { transform: translate( -50%, 0 ); }
+		}
+		@-webkit-keyframes scrollHoriz {
+			from { transform: translate( 0, 0 ); }
+			to { transform: translate( -50%, 0 ); }
+		}
+		@-ms-keyframes scrollHoriz {
+			from { transform: translate( 0, 0 ); }
+			to { transform: translate( -50%, 0 ); }
+		}
+		@-moz-keyframes scrollHoriz {
+			from { transform: translate( 0, 0 ); }
+			to { transform: translate( -50%, 0 ); }
+		}
+    
+    /* ================================= */
+    /* Define the layer content and size */
+    /* ================================= */
+    
+    /* BG Layer 0 */
+    .layermotion:nth-child(1) > .layer {
+      /* Layer image */
+      background-image: url(bg.png);
+      /* Layer Width and Height */
+      width: 500px;
+      height: 500px;
+    }
+		
+    /* Layer 1 */
+    .layermotion:nth-child(2) > .layer {
+      /* Layer image */
+      background-image: url(layer-1.png);
+      /* Layer Width and Height */
+      width: 500px;
+      height: 500px;
+    }
+    
+    /* Layer 2 */
+    .layermotion:nth-child(3) > .layer {
+      /* Layer image */
+      background-image: url(layer-2.png);
+      /* Layer Width and Height */
+      width: 500px;
+      height: 500px;
+    }
+		
+    /* Layer 3 */
+    .layermotion:nth-child(4) > .layer {
+      /* Layer image */
+      background-image: url(layer-3.png);
+      /* Layer Width and Height */
+      width: 500px;
+      height: 500px;
+    }
+    
+    
+    /* ================================= */
+    /* Define the layer animation timing */
+    /* ================================= */
+    
+    /* BG Layer 0 completes a scrollHoriz animation cycle in 20s */
+    .layermotion:nth-child(1){
+			animation: scrollHoriz 20s linear infinite;
+			-ms-animation: scrollHoriz 20s linear infinite;
+			-moz-animation: scrollHoriz 20s linear infinite;
+			-webkit-animation: scrollHoriz 20s linear infinite;
+    }
+    
+    /* Layer 1 completes a scrollHoriz animation cycle in 15s */
+    .layermotion:nth-child(2){
+      /* scrollHoriz is the animation name */
+      /* 5s is the time for the animation to complete one loop */
+			animation: scrollHoriz 15s linear infinite;
+			-ms-animation: scrollHoriz 15s linear infinite;
+			-moz-animation: scrollHoriz 15s linear infinite;
+			-webkit-animation: scrollHoriz 15s linear infinite;
+    }
+    
+    /* Layer 2 completes a scrollHoriz animation cycle in 10s */
+    .layermotion:nth-child(3){
+      /* scrollHoriz is the animation name */
+      /* 5s is the time for the animation to complete one loop */
+			animation: scrollHoriz 10s linear infinite;
+			-ms-animation: scrollHoriz 10s linear infinite;
+			-moz-animation: scrollHoriz 10s linear infinite;
+			-webkit-animation: scrollHoriz 10s linear infinite;
+    }
+    
+    /* Layer 3 completes a scrollHoriz animation cycle in 5s */
+    .layermotion:nth-child(4){
+      /* scrollHoriz is the animation name */
+      /* 5s is the time for the animation to complete one loop */
+			animation: scrollHoriz 5s linear infinite;
+			-ms-animation: scrollHoriz 5s linear infinite;
+			-moz-animation: scrollHoriz 5s linear infinite;
+			-webkit-animation: scrollHoriz 5s linear infinite;
+    }
+</style>
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="layers">
+      <div class="layermotion">
+        <div class="layer" id="bg"></div>
+        <div class="layer" id="bg-dupe"></div>
+      </div>
+      <div class="layermotion">
+        <div class="layer" id="1"></div>
+        <div class="layer" id="1-dupe"></div>
+      </div>
+      <div class="layermotion">
+        <div class="layer" id="2"></div>
+        <div class="layer" id="2-dupe"></div>
+      </div>
+      <div class="layermotion">
+        <div class="layer" id="3"></div>
+        <div class="layer" id="3-dupe"></div>
+      </div>
+    </div>
+  </div>
+</body>
+
+
+</html>
